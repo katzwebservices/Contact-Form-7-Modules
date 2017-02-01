@@ -9,12 +9,12 @@ function contact_form_7_modules_promo_message() {
 
 	$message = (int)get_option('cf7_modules_hide_promo_message');
 
-	if(isset($_REQUEST['hide']) && $_REQUEST['hide'] == 'cf7_modules_promo_message') {
-		$message = 3;
+	if(isset($_REQUEST['hide']) && $_REQUEST['hide'] === 'cf7_modules_promo_message') {
+		$message = 5;
 		update_option('cf7_modules_hide_promo_message', $message);
 	}
 
-	if($pagenow == 'admin.php' && isset($_REQUEST['page']) && $_REQUEST['page'] == 'wpcf7' && ($message !== 3 || isset($_REQUEST['show']) && $_REQUEST['show'] == 'cf7_modules_promo_message')) {
+	if($pagenow == 'admin.php' && isset($_REQUEST['page']) && $_REQUEST['page'] == 'wpcf7' && ($message !== 5 || isset($_REQUEST['show']) && $_REQUEST['show'] == 'cf7_modules_promo_message')) {
 		echo contact_form_7_modules_get_message();
 	}
 }
