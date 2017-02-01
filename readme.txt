@@ -1,5 +1,5 @@
 === Contact Form 7 Modules ===
-Tags: Contact Form 7, form, forms, contactform7, contact form, hidden fields, hidden, cf7, cforms ii, cforms, Contact Forms 7, Contact Forms, contacted, contacts
+Tags: Contact Form 7, cf7, Contact Forms 7, hidden fields, all fields
 Requires at least: 2.8
 Tested up to: 4.2.2
 Stable tag: trunk
