@@ -12,8 +12,11 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-if ( ! function_exists( 'contact_form_7_modules_promo_message') ) {
-	include_once plugin_dir_path( __FILE__ ) . 'functions.php';
+add_action( 'plugins_loaded', 'all_fields_wpcf7_load_functions' );
+function all_fields_wpcf7_load_functions() {
+	if ( ! function_exists( 'contact_form_7_modules_promo_message' ) ) {
+		include_once plugin_dir_path( __FILE__ ) . 'functions.php';
+	}
 }
 
 add_filter('wpcf7_mail_components', 'all_fields_wpcf7_before_send_mail');
