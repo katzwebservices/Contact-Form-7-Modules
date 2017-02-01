@@ -50,21 +50,26 @@ function contact_form_7_hidden_fields() {
 			wpcf7_add_shortcode( array( 'hidden', 'hidden*' ), 'wpcf7_hidden_shortcode_handler', true );
 		}
 	} else {
-		if($pagenow != 'plugins.php') { return; }
-		add_action('admin_notices', 'cfhiddenfieldserror');
-		add_action('admin_enqueue_scripts', 'contact_form_7_hidden_fields_scripts');
-
-		function cfhiddenfieldserror() {
-			$out = '<div class="error" id="messages"><p>';
-			if(file_exists(WP_PLUGIN_DIR.'/contact-form-7/wp-contact-form-7.php')) {
-				$out .= 'The Contact Form 7 is installed, but <strong>you must activate Contact Form 7</strong> below for the Hidden Fields Module to work.';
-			} else {
-				$out .= 'The Contact Form 7 plugin must be installed for the Hidden Fields Module to work. <a href="'.admin_url('plugin-install.php?tab=plugin-information&plugin=contact-form-7&from=plugins&TB_iframe=true&width=600&height=550').'" class="thickbox" title="Contact Form 7">Install Now.</a>';
-			}
-			$out .= '</p></div>';
-			echo $out;
+		if($pagenow != 'plugins.php') {
+		    return;
 		}
+
+		add_action('admin_notices', 'contact_form_7_hidden_fields_error');
+		add_action('admin_enqueue_scripts', 'contact_form_7_hidden_fields_scripts');
 	}
+}
+
+function contact_form_7_hidden_fields_error() {
+	$out = '<div class="error" id="messages"><p>';
+	if( @ file_exists( WP_PLUGIN_DIR.'/contact-form-7/wp-contact-form-7.php') ) {
+		$out .= esc_html__('The Contact Form 7 is installed, but you must activate Contact Form 7 below for the Hidden Fields Module to work.', 'cf7_modules' );
+	} else {
+		$out .= esc_html__( 'The Contact Form 7 plugin must be installed for the Hidden Fields Module to work.', 'cf7_modules' );
+		$install_url = esc_url_raw( admin_url('plugin-install.php?tab=plugin-information&plugin=contact-form-7&from=plugins&TB_iframe=true&width=600&height=550') );
+		$out .= sprintf( ' <a href="%s" class="thickbox" title="Contact Form 7">%s</a>', $install_url, esc_html__( 'Install Now.', 'cf7_modules' ) );
+	}
+	$out .= '</p></div>';
+	echo $out;
 }
 
 function contact_form_7_hidden_fields_scripts() {
