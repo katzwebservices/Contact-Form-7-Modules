@@ -30,8 +30,13 @@ Domain Path: languages
 add_action('init', 'contact_form_7_all_fields_textdomain');
 
 function contact_form_7_all_fields_textdomain() {
+
 	// Load the default language files
 	load_plugin_textdomain( 'cf7_modules', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
+	if ( ! function_exists( 'contact_form_7_modules_promo_message') ) {
+		include_once plugin_dir_path( __FILE__ ) . 'functions.php';
+	}
 }
 
 add_filter('wpcf7_mail_components', 'all_fields_wpcf7_before_send_mail');
