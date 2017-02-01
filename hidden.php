@@ -40,7 +40,11 @@ add_action('plugins_loaded', 'contact_form_7_hidden_fields', 11);
 function contact_form_7_hidden_fields() {
 	global $pagenow;
 	if( class_exists('WPCF7_Shortcode') ) {
-		wpcf7_add_shortcode( array( 'hidden', 'hidden*' ), 'wpcf7_hidden_shortcode_handler', true );
+		if ( function_exists( 'wpcf7_add_form_tag' ) ) {
+			wpcf7_add_form_tag( array( 'hidden', 'hidden*' ), 'wpcf7_hidden_shortcode_handler', true );
+		} else {
+			wpcf7_add_shortcode( array( 'hidden', 'hidden*' ), 'wpcf7_hidden_shortcode_handler', true );
+		}
 	} else {
 		if($pagenow != 'plugins.php') { return; }
 		add_action('admin_notices', 'cfhiddenfieldserror');
