@@ -283,7 +283,7 @@ function wpcf7_add_tag_generator_hidden() {
 	if( class_exists('WPCF7_TagGenerator') ) {
 
 		$tag_generator = WPCF7_TagGenerator::get_instance();
-		$tag_generator->add( 'hidden', __( 'hidden', 'cf7_modules' ), 'wpcf7_tg_pane_hidden' );
+		$tag_generator->add( 'hidden', _x( 'hidden', 'the name of the field button in CF7', 'cf7_modules' ), 'wpcf7_tg_pane_hidden' );
 
 	}
 }
@@ -293,7 +293,7 @@ function wpcf7_tg_pane_hidden( $contact_form, $args = '' ) {
 	$args = wp_parse_args( $args, array() );
 
 	$description = __( "Generate a form tag for a hidden field. For more details, see %s.", 'contact-form-7' );
-	$desc_link = wpcf7_link( __( 'https://wordpress.org/plugins/contact-form-7-modules/', 'contact-form-7' ), __( 'the plugin page on WordPress.org', 'contact-form-7' ), array('target' => '_blank' ) );
+	$desc_link = wpcf7_link( 'https://wordpress.org/plugins/contact-form-7-modules/', __( 'the plugin page on WordPress.org', 'contact-form-7' ), array('target' => '_blank' ) );
 ?>
 <div class="control-box">
 	<fieldset>
