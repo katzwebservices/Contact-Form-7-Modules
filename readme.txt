@@ -111,7 +111,7 @@ Add this to your `functions.php` file: `add_filter('wpcf7_send_all_fields_send_e
 
 == Changelog ==
 
-= 2.0.1 on February 1, 2017 =
+= 2.0.1 & 2.0.2 on February 1, 2017 =
 
 * Confirmed compatibility with WordPress 4.7.2
 * Updated to work with Contact Form 7 4.6
