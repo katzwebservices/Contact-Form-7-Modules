@@ -4,7 +4,7 @@ Plugin Name: Contact Form 7 Modules: Send All Fields
 Plugin URI: https://katz.co/contact-form-7-hidden-fields/
 Description: Send all submitted fields in the message body using one simple tag: <code>[all-fields]</code>
 Author: Katz Web Services, Inc.
-Author URI: http://www.katzwebservices.com
+Author URI: http://www.katz.co
 Version: 2.0.1
 Text Domain: cf7_modules
 Domain Path: languages
@@ -24,7 +24,6 @@ add_filter('wpcf7_mail_components', 'all_fields_wpcf7_before_send_mail');
 
 function all_fields_wpcf7_before_send_mail($array) {
 	$debug = false;
-	global $wpdb;
 
 	if ( $debug ) {
 		print_r( $array );

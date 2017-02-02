@@ -4,8 +4,8 @@ Plugin Name: Contact Form 7 Modules: Hidden Fields
 Plugin URI: https://katz.co/contact-form-7-hidden-fields/
 Description: Add hidden fields to the popular Contact Form 7 plugin.
 Author: Katz Web Services, Inc.
-Author URI: http://www.katzwebservices.com
-Version: 2.0
+Author URI: http://www.katz.co
+Version: 2.0.1
 Text Domain: cf7_modules
 Domain Path: languages
 License: GPLv2 or later
