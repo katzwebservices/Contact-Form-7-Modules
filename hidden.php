@@ -166,8 +166,8 @@ function contact_form_7_hidden_fields_fill_user_data( $value ) {
 
 	// Process user stuff
 	if ( preg_match( '/user/ism', strtolower( trim( $value ) ) ) && is_user_logged_in() ) {
-		global $current_user;
-		get_currentuserinfo();
+
+	    $current_user = wp_get_current_user();
 
 		switch ( $value ) {
 			case 'user_name':
