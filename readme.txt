@@ -114,6 +114,7 @@ Add this to your `functions.php` file: `add_filter('wpcf7_send_all_fields_send_e
 
 == Changelog ==
 
+    * Fixed: `[hidden]` shortcodes not being replaced in emails
 = 2.0 on June 28, 2015 =
 * **Requires Contact Form 7 4.2 or higher**
 * Updated to work with latest Contact Form 7

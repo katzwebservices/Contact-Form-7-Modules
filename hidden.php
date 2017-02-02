@@ -24,7 +24,7 @@ add_action('plugins_loaded', 'contact_form_7_hidden_fields', 11);
 
 function contact_form_7_hidden_fields() {
 	global $pagenow;
-	if ( class_exists( 'WPCF7_Shortcode' ) ) {
+	if ( class_exists( 'WPCF7_Shortcode' ) || class_exists('WPCF7_FormTag') ) {
 		if ( function_exists( 'wpcf7_add_form_tag' ) ) {
 			wpcf7_add_form_tag( array( 'hidden', 'hidden*' ), 'wpcf7_hidden_shortcode_handler', true );
 		} else {
@@ -87,7 +87,11 @@ function wpcf7_form_elements_strip_paragraphs_and_brs_callback($matches = array(
 
 function wpcf7_hidden_shortcode_handler( $tag ) {
 
-	$tag = new WPCF7_Shortcode( $tag );
+	if ( class_exists( 'WPCF7_FormTag' ) ) {
+	    $tag = new WPCF7_FormTag( $tag );
+	} else {
+		$tag = new WPCF7_Shortcode( $tag );
+	}
 
 	if ( empty( $tag->name ) ) {
 		return '';
