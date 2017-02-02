@@ -266,16 +266,6 @@ function contact_form_7_hidden_fields_fill_post_data( $value = '', $tag ) {
 	return $return;
 }
 
-add_filter('wpcf7_hidden_field_value_example', 'wpcf7_hidden_field_add_query_arg');
-
-function wpcf7_hidden_field_add_query_arg($value = '') {
-	if ( isset( $_GET['category'] ) ) {
-		return $_GET['category'];
-	}
-
-	return $value;
-}
-
 
 /* Tag generator */
 
